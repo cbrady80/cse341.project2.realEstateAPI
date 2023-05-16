@@ -12,7 +12,7 @@ router.use(
     '/',
     (docData = (req, res) => {
       let docData = {
-        documentationURL: 'https://github.com/cbrady80/real-estate-api',
+        documentationURL: 'https://github.com/cbrady80/cse341.project2.realEstateAPI',
       };
       res.send(docData);
     })

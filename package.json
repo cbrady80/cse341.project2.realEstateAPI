@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cbrady80/real-estate-api.git"
+    "url": "git+https://github.com/cbrady80/cse341.project2.realEstateAPI"
   },
   "author": "Cheryl Brady",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cbrady80/real-estate-api/issues"
+    "url": "https://github.com/cbrady80/cse341.project2.realEstateAPI/issues"
   },
-  "homepage": "https://github.com/cbrady80/real-estate-api#readme",
+  "homepage": "https://github.com/cbrady80/cse341.project2.realEstateAPI#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
