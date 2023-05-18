@@ -8,7 +8,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllProperties = async (req, res, next) => {
     const result = await mongodb
         .getDb()
-        .db()
+        .db('realEstate')
         .collection('properties')
         .find();
     result.toArray().then((lists) => {
@@ -22,7 +22,7 @@ const getPropertyById = async (req, res, next) => {
     const propertyId = new ObjectId(req.params.id);
     const result = await mongodb
         .getDb()
-        .db()
+        .db('realEstate')
         .collection('properties')
         .find({_id: propertyId});
     result.toArray().then((lists) => {
@@ -40,7 +40,7 @@ const newProperty = async (req, res, next) => {
 
     const result = await mongodb
         .getDb()
-        .db()
+        .db('realEstate')
         .collection('properties')
         .insertOne(property);
     
@@ -62,7 +62,7 @@ const updateProperty = async (req, res, next) => {
 
     const result = await mongodb
         .getDb()
-        .db()
+        .db('realEstate')
         .collection('properties')
         .updateOne(
             {_id: propertyId},
@@ -83,7 +83,7 @@ const deleteProperty = async (req, res, next) => {
 
     const result = await mongodb
         .getDb()
-        .db()
+        .db('realEstate')
         .collection('properties')
         .deleteOne({_id: propertyId});
 

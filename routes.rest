@@ -1,0 +1,13 @@
+// LOCAL HOST
+//GET ALL PROPERTIES
+GET http://localhost:5000/properties
+###
+//GET ALL TENANTS
+GET http://localhost:5000/tenants
+###
+// GET PROPERTY BY ID
+GET http://localhost:5000/properties/646687744676e7468f8b1a4b
+###
+// GET TENANT BY ID
+GET http://localhost:5000/tenants/646688844676e7468f8b1a4d
+###

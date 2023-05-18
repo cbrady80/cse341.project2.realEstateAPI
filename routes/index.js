@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // USE request for swagger
-router.use('/', require('../swagger'));
+router.use('/', require('./swagger'));
 // USE request for PROPERTIES
 router.use('/properties', require('./properties'));
 //USE request for TENANTS

@@ -2,10 +2,10 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
+    title: 'Real Estate API',
     description: 'Description',
   },
-  host: 'cse341-spring23-dfu6.onrender.com',
+  host: 'cse341-realestateapi.onrender.com',
   schemes: ['https'],
 };
 
