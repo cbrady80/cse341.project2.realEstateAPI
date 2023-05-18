@@ -4,7 +4,7 @@
 const express = require('express');
 const router = express.Router();
 // Import controller
-const contactsController = require('../controllers/properties');
+const propertiesController = require('../controllers/properties');
 
 //Route for retreiving all properties
 router.get('/', propertiesController.getAllProperties);
