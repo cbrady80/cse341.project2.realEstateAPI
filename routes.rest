@@ -39,7 +39,7 @@ Content-type: application/json
 
 // LOCAL HOST - UPDATE PROPERTY
 ###
-PUT http://localhost:5000/properties/ID HTTP/1.1
+PUT http://localhost:5000/properties/6466a73c279ea783bafd48f8 HTTP/1.1
 Content-type: application/json
 
 {
@@ -49,7 +49,7 @@ Content-type: application/json
 
 // LOCAL HOST - UPDATE TENANT
 ###
-PUT http://localhost:5000/tenants/ID HTTP/1.1
+PUT http://localhost:5000/tenants/6466a76a279ea783bafd48f9 HTTP/1.1
 Content-type: application/json
 
 {
