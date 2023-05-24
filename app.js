@@ -27,6 +27,11 @@ app
     })
     .use('/', require('./routes')); // Calls the routes to view the data
 
+// ADDING FOR WEEK 6 - DATA VALIDATION AND ERROR HANDLING
+process.on('uncaughtException', (err, origin) => {
+    console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
+
 mongodb.initDb((err, mongodb) => {
     if (err) {
         console.log(err);

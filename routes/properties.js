@@ -6,6 +6,9 @@ const router = express.Router();
 // Import controller
 const propertiesController = require('../controllers/properties');
 
+// Import validation middleware - WEEK 6
+const validation = require('../middleware/validate');
+
 //Route for retreiving all properties
 router.get('/', propertiesController.getAllProperties);
 
@@ -13,10 +16,10 @@ router.get('/', propertiesController.getAllProperties);
 router.get('/:id', propertiesController.getPropertyById);
 
 //Route for creating a new property - POST
-router.post('/', propertiesController.newProperty);
+router.post('/', validation.saveProperty, propertiesController.newProperty);
 
 //Route for updating an exsisting property - PUT
-router.put('/:id', propertiesController.updateProperty);
+router.put('/:id', validation.saveProperty, propertiesController.updateProperty);
 
 //Route for deleting a property - DELETE
 router.delete('/:id', propertiesController.deleteProperty);

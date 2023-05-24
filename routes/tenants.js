@@ -6,6 +6,9 @@ const router = express.Router();
 // Import controller
 const tenantsController = require('../controllers/tenants');
 
+// Import validation middleware - WEEK 6
+const validation = require('../middleware/validate');
+
 //Route for retreiving all tenants
 router.get('/', tenantsController.getAllTenants);
 
@@ -13,10 +16,10 @@ router.get('/', tenantsController.getAllTenants);
 router.get('/:id', tenantsController.getTenantById);
 
 //Route for creating a new tenant - POST
-router.post('/', tenantsController.newTenant);
+router.post('/', validation.saveTenant, tenantsController.newTenant);
 
 //Route for updating an exsisting tenant - PUT
-router.put('/:id', tenantsController.updateTenant);
+router.put('/:id', validation.saveTenant, tenantsController.updateTenant);
 
 //Route for deleting a tenant - DELETE
 router.delete('/:id', tenantsController.deleteTenant);
