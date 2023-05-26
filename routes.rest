@@ -1,20 +1,19 @@
 // #################   LOCAL HOST  #####################
-//GET ALL PROPERTIES
-GET http://localhost:5000/properties
-###
-// GET ALL TENANTS
-GET http://localhost:5000/tenants
-###
-// GET PROPERTY BY ID
-GET http://localhost:5000/properties/646687744676e7468f8b1a4b
-###
-// GET TENANT BY ID
-GET http://localhost:5000/tenants/646688844676e7468f8b1a4d
-###
+### GET ALL PROPERTIES
+GET http://localhost:8080/properties
 
-// LOCAL HOST - CREATE NEW PROPERTY
-###
-POST http://localhost:5000/properties HTTP/1.1
+### GET ALL TENANTS
+GET http://localhost:8080/tenants
+
+### GET PROPERTY BY ID
+GET http://localhost:8080/properties/646687744676e7468f8b1a4b
+
+### GET TENANT BY ID
+GET http://localhost:8080/tenants/646688844676e7468f8b1a4d
+
+
+###  CREATE NEW PROPERTY
+POST http://localhost:8080/properties HTTP/1.1
 Content-type: application/json
 
 {
@@ -22,24 +21,22 @@ Content-type: application/json
     "address":"123 somewhere street"
 }
 
-// LOCAL HOST - CREATE NEW TENANT
-###
-POST http://localhost:5000/tenants HTTP/1.1
+### CREATE NEW TENANT
+POST http://localhost:8080/tenants HTTP/1.1
 Content-type: application/json
 
 {
-    "firstName":"Paige", 
-    "lastName":"Brady", 
-    "email":"paige@fakeemail.com", 
+    "firstName":"DEBUG", 
+    "lastName":"Testing", 
+    "email":"test@fakeemail.com", 
     "propertyAddr":"pink", 
     "monthlyRent":"1000",
-    "leaseStart":"03/11/15",
-    "leaseEnd":"5/31/33"
+    "leaseStart":"01/11/11",
+    "leaseEnd":"01/31/33"
 }
 
-// LOCAL HOST - UPDATE PROPERTY
-###
-PUT http://localhost:5000/properties/6466a73c279ea783bafd48f8 HTTP/1.1
+### UPDATE PROPERTY
+PUT http://localhost:8080/properties/6466a73c279ea783bafd48f8 HTTP/1.1
 Content-type: application/json
 
 {
@@ -47,50 +44,47 @@ Content-type: application/json
     "address":"456 future place"
 }
 
-// LOCAL HOST - UPDATE TENANT
-###
-PUT http://localhost:5000/tenants/6466a76a279ea783bafd48f9 HTTP/1.1
+
+###  UPDATE TENANT
+PUT http://localhost:8080/tenants/646fd482dd27a2ea42708536 HTTP/1.1
 Content-type: application/json
 
 {
     "firstName":"Brooke", 
-    "lastName":"Brady", 
-    "email":"brooke@fakeemail.com", 
+    "lastName":"TEST", 
+    "email":"debugging@fakeemail.com", 
     "propertyAddr":"purple", 
     "monthlyRent":"1000",
     "leaseStart":"05/02/13",
     "leaseEnd":"5/31/31"
 }
 
-// LOCAL HOST - DELETE PROPERTY
-###
-DELETE http://localhost:5000/properties/ID HTTP/1.1
 
-// LOCAL HOST - DELETE TENANT
-###
-DELETE http://localhost:5000/tenants/ID HTTP/1.1
-###
+### DELETE PROPERTY
+DELETE http://localhost:8080/properties/ID HTTP/1.1
+
+
+### DELETE TENANT
+DELETE http://localhost:8080/tenants/646fd482dd27a2ea42708536 HTTP/1.1
+
 
 
 // #################   PRODUCTION DEPLOY - RENDER  #####################
 
-
-// RENDER - GET ALL PROPERTIES
+### GET ALL PROPERTIES
 GET https://cse341-realestateapi.onrender.com/properties
-###
-// RENDER - GET PROPERTY BY ID
+
+###  GET PROPERTY BY ID
 GET https://cse341-realestateapi.onrender.com/properties/ID
-###
-// RENDER - GET ALL TENANTS
+
+###  GET ALL TENANTS
 GET https://cse341-realestateapi.onrender.com/tenants
-###
-// RENDER - GET TENANT BY ID
+
+### GET TENANT BY ID 
 GET https://cse341-realestateapi.onrender.com/tenants/ID
-###
 
 
-// RENDER - CREATE NEW PROPERTY
-###
+### CREATE NEW PROPERTY
 POST https://cse341-realestateapi.onrender.com/properties HTTP/1.1
 Content-type: application/json
 
@@ -99,8 +93,8 @@ Content-type: application/json
     "address":"987 ABC road"
 }
 
-// RENDER - CREATE NEW TENANT
-###
+
+### CREATE NEW TENANT
 POST https://cse341-realestateapi.onrender.com/tenants HTTP/1.1
 Content-type: application/json
 
@@ -114,8 +108,8 @@ Content-type: application/json
     "leaseEnd":"5/31/24"
 }
 
-// RENDER - UPDATE PROPERTY
-###
+
+### UPDATE PROPERTY
 PUT https://cse341-realestateapi.onrender.com/properties/6455a907ea3259b5cd9f585a HTTP/1.1
 Content-type: application/json
 
@@ -124,8 +118,8 @@ Content-type: application/json
     "address":"111 Updated Rd"
 }
 
-// RENDER - UPDATE TENANT
-###
+
+### UPDATE TENANT
 PUT https://cse341-realestateapi.onrender.com/tenants/6455a907ea3259b5cd9f585a HTTP/1.1
 Content-type: application/json
 
@@ -139,10 +133,10 @@ Content-type: application/json
     "leaseEnd":"5/31/24"
 }
 
-// RENDER - DELETE PROPERTY
-###
+
+### DELETE PROPERTY
 DELETE https://cse341-realestateapi.onrender.com/properties/6455a907ea3259b5cd9f585a HTTP/1.1
 
-// RENDER - DELETE TENANT
-###
+
+### DELETE TENANT
 DELETE https://cse341-realestateapi.onrender.com/tenants/6455a907ea3259b5cd9f585a HTTP/1.1

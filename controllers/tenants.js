@@ -5,19 +5,17 @@ const mongodb = require('../db/connection');
 const ObjectId = require('mongodb').ObjectId;
 
 // Function to retrieve all tenants
-const getAllTenants = async (req, res, next) => {
-    mongodb
+const getAllTenants = async (req, res) => {
+    const result = await mongodb
         .getDb()
         .db('realEstate')
         .collection('tenants')
-        .find()
-        .toArray((err, lists) => { //changed this to add in the error handling for week 6
-            if (err) {
-                res.status(400).json({ message: err });
-            }
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(lists);
-        });
+        .find();
+        result.toArray().then(
+            lists => {res.setHeader('Content-Type', 'application/json'); 
+                      res.status(200).json(lists)},
+            err => {res.status(400).json({ message: err })}
+        );
 };
 
 // Function to retrive one tenant by ID
@@ -26,18 +24,16 @@ const getTenantById = async (req, res, next) => {
         res.status(400).json('Must use a valid id to find a tenant.');
     }
     const tenantId = new ObjectId(req.params.id);
-    mongodb
+    const result = await mongodb
         .getDb()
         .db('realEstate')
         .collection('tenants')
-        .find({_id: tenantId})
-        .toArray((err, result) => {  //changed this to add in the error handling for week 6
-            if (err) {
-                res.status(400).json({ message: err });
-            }
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(result[0]);
-        });
+        .find({_id: tenantId});
+        result.toArray().then(
+            lists => {res.setHeader('Content-Type', 'application/json'); 
+                      res.status(200).json(lists[0])},
+            err => {res.status(400).json({ message: err })}
+        );
 };
 
 // Function to create a NEW tenant

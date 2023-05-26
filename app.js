@@ -9,7 +9,7 @@ const swaggerDocument = require('./swagger.json');
 const app = express();
 
 // Save a port number
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 
 app
