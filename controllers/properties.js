@@ -88,7 +88,7 @@ const updateProperty = async (req, res, next) => {
 // Function to DELETE an existing property
 const deleteProperty = async (req, res, next) => {
     if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
-        res.status(400).json('Must use a valid contact id to delete a contact.');
+        res.status(400).json('Must use a valid contact id to delete a property.');
     }
     const propertyId = new ObjectId(req.params.id);
 
