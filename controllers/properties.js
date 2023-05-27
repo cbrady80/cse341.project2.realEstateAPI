@@ -20,7 +20,7 @@ const getAllProperties = async (req, res, next) => {
 
 // Function to retrive one property by ID
 const getPropertyById = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
+    if (!ObjectId.isValid(req.params.id)) {  //data validation - week 6
         res.status(400).json('Must use a valid id to find a property.');
     }
     const propertyId = new ObjectId(req.params.id);
@@ -58,7 +58,7 @@ const newProperty = async (req, res, next) => {
 
 // Function to UPDATE an exsisting property
 const updateProperty = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
+    if (!ObjectId.isValid(req.params.id)) {  //data validation - week 6
         res.status(400).json('Must use a valid id to update a property.');
     }
     const propertyId = new ObjectId(req.params.id);
@@ -87,8 +87,8 @@ const updateProperty = async (req, res, next) => {
 
 // Function to DELETE an existing property
 const deleteProperty = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
-        res.status(400).json('Must use a valid contact id to delete a property.');
+    if (!ObjectId.isValid(req.params.id)) {  //data validation - week 6
+        res.status(400).json('Must use a valid id to delete a property.');
     }
     const propertyId = new ObjectId(req.params.id);
 

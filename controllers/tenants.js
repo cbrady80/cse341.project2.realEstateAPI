@@ -20,7 +20,7 @@ const getAllTenants = async (req, res) => {
 
 // Function to retrive one tenant by ID
 const getTenantById = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
+    if (!ObjectId.isValid(req.params.id)) {  //data validation - week 6
         res.status(400).json('Must use a valid id to find a tenant.');
     }
     const tenantId = new ObjectId(req.params.id);
@@ -63,7 +63,7 @@ const newTenant = async (req, res, next) => {
 
 // Function to UPDATE an exsisting tenant
 const updateTenant = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
+    if (!ObjectId.isValid(req.params.id)) {  //data validation - week 6
         res.status(400).json('Must use a valid id to update a tenant.');
     }
     const tenantId = new ObjectId(req.params.id);
@@ -97,7 +97,7 @@ const updateTenant = async (req, res, next) => {
 
 // Function to DELETE an existing tenant
 const deleteTenant = async (req, res, next) => {
-    if (!ObjectId.isValid(req.params.id)) {  //changed this to add in the error handling for week 6
+    if (!ObjectId.isValid(req.params.id)) {  //data validation - week 6
         res.status(400).json('Must use a valid id to delete a tenant.');
     }
     const tenantId = new ObjectId(req.params.id);
