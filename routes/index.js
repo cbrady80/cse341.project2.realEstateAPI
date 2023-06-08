@@ -1,4 +1,8 @@
-const { auth } = require('express-openid-connect');
+// Import Express package Router
+const express = require('express');
+const router = express.Router();
+
+const { auth, requiresAuth } = require('express-openid-connect');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -11,9 +15,6 @@ const config = {
   issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL
 };
 
-// Import Express package Router
-const express = require('express');
-const router = express.Router();
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 router.use(auth(config));
@@ -23,6 +24,11 @@ router.get('/checkLoginStatus', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
+// Example used to get profile info
+router.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
 
 // USE request for swagger
 router.use('/', require('./swagger'));
@@ -30,6 +36,7 @@ router.use('/', require('./swagger'));
 router.use('/properties', require('./properties'));
 //USE request for TENANTS
 router.use('/tenants', require('./tenants'));
+// USE request for main page
 router.use(
     '/',
     (docData = (req, res) => {
