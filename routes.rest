@@ -17,7 +17,7 @@ POST http://localhost:8080/properties HTTP/1.1
 Content-type: application/json
 
 {
-    "propertyName":"TEST", 
+    "propertyName":"TESTING 123", 
     "address":"123 somewhere street"
 }
 
