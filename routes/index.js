@@ -49,12 +49,10 @@ router.use(
 router.use('/properties', require('./properties'));
 
 //USE request for TENANTS
-// router.use('/tenants', require('./tenants'));
+router.use('/tenants', require('./tenants'));
 
-// TESTING FOR AUTH REQS
-router.use('/tenants', requiresAuth(), (req, res) => {
-  require('./tenants');
-}); 
 
 // Export
-module.exports = router;
+module.exports = {
+  router
+};
