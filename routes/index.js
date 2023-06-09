@@ -52,7 +52,9 @@ router.use('/properties', require('./properties'));
 // router.use('/tenants', require('./tenants'));
 
 // TESTING FOR AUTH REQS
-router.use('/tenants', requiresAuth(), require('./tenants'));
+router.use('/tenants', requiresAuth(), (req, res) => {
+  require('./tenants');
+}); 
 
 // Export
 module.exports = router;
