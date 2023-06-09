@@ -33,23 +33,23 @@ router.get('/profile', requiresAuth(), (req, res) => {
 // USE request for swagger
 router.use('/', require('./swagger'));
 
-// USE request for HOME page
-router.use(
-    '/',
-    (docData = (req, res) => {
-      let docData = {
-        title: 'HOME PAGE',
-        documentationURL: 'https://github.com/cbrady80/cse341.project2.realEstateAPI'
-      };
-      res.send(docData);
-    })
-  );
-
 // USE request for PROPERTIES
 router.use('/properties', require('./properties'));
 
 //USE request for TENANTS
 router.use('/tenants', require('./tenants'));
+
+// USE request for HOME page
+router.use(
+  '/',
+  (docData = (req, res) => {
+    let docData = {
+      title: 'HOME PAGE',
+      documentationURL: 'https://github.com/cbrady80/cse341.project2.realEstateAPI'
+    };
+    res.send(docData);
+  })
+);
 
 
 // Export
