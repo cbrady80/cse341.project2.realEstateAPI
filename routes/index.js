@@ -53,6 +53,4 @@ router.use('/tenants', require('./tenants'));
 
 
 // Export
-module.exports = {
-  router
-};
+module.exports = router;
