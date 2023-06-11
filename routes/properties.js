@@ -9,25 +9,8 @@ const propertiesController = require('../controllers/properties');
 // Import validation middleware - WEEK 6
 const validation = require('../middleware/validate');
 
-// Stuff for Auth0
-const { auth, requiresAuth } = require('express-openid-connect');
-const dotenv = require('dotenv');
-dotenv.config();
-
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.SESSION_SECRET,
-  baseURL: process.env.BASE_URL,
-  clientID: process.env.AUTH0_CLIENT_ID,
-  issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL
-};
-
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-router.use(auth(config));
-
-
-
+// Imports for Auth0 middleware - COULDNT GET THIS TO WORK
+// const { requiresAuth } = require('/index');
 
 
 //Route for retreiving all properties
@@ -37,7 +20,7 @@ router.get('/', propertiesController.getAllProperties);
 router.get('/:id', propertiesController.getPropertyById);
 
 //Route for creating a new property - POST
-// router.post('/', validation.saveProperty, propertiesController.newProperty);
+router.post('/', validation.saveProperty, propertiesController.newProperty);
 
 //Route for updating an exsisting property - PUT
 router.put('/:id', validation.saveProperty, propertiesController.updateProperty);
@@ -45,13 +28,12 @@ router.put('/:id', validation.saveProperty, propertiesController.updateProperty)
 //Route for deleting a property - DELETE
 router.delete('/:id', propertiesController.deleteProperty);
 
-// TEST route for use of Auth0 - POST
-router.post('/', requiresAuth(), (req, res, next) => {
-    res.send(JSON.stringify(req.oidc.user))
-    .then(validation.saveProperty, 
-        propertiesController.newProperty);
-});
-
+// // TEST route for use of Auth0 - POST - COULDNT GET THIS TO WORK
+// router.post('/', requiresAuth(), (req, res) => {
+//     console.log(req),
+//     validation.saveProperty, 
+//     propertiesController.newProperty;
+// });
 
 
 

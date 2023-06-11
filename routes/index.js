@@ -26,6 +26,7 @@ router.get('/checkLoginStatus', (req, res) => {
 
 // Example used to get profile info
 router.get('/profile', requiresAuth(), (req, res) => {
+  console.log('in /profile');
   res.send(JSON.stringify(req.oidc.user));
 });
 
@@ -50,6 +51,7 @@ router.use(
     res.send(docData);
   })
 );
+
 
 
 // Export
