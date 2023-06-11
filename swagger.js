@@ -5,7 +5,7 @@ const doc = {
     title: 'Real Estate API',
     description: 'Description',
   },
-  host: 'https://cse341-realestateapi.onrender.com',
+  host: 'cse341-realestateapi.onrender.com',
   schemes: ['https'],
 };
 
